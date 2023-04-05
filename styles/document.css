@@ -1,0 +1,11 @@
+.toolbar-class {
+  background-color: #edf2fa !important;
+  border-radius: 50px !important;
+  position: sticky;
+}
+.toolbar-class .rdw-option-wrapper {
+  background: transparent;
+}
+.toolbar-class .rdw-dropdown-selectedtext {
+  background: transparent;
+}

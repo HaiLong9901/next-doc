@@ -9,3 +9,6 @@ export const convertDocument = (document: DocumentSnapshot<DocumentData>) =>
     //   updatedAt: document ? convertDocument(document.data().createdtAt)
     updatedAt: convertFirebaseTimestamp(document.data()?.updatedAt),
   } as Document)
+export const getDate = (date: string) => {
+  return date.slice(8, date.length)
+}

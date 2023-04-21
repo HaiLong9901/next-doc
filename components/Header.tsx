@@ -1,7 +1,7 @@
 // import Button from '@mui/material/Button'
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { Tooltip, IconButton, Avatar } from '@mui/material'
+import { Tooltip, IconButton, Avatar, Fab } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import BookIcon from '@mui/icons-material/Book'
 import SearchIcon from '@mui/icons-material/Search'
@@ -40,6 +40,10 @@ const Header = (props: Props) => {
       setOpenLogOutBox(false)
     }
   }
+  const handleScroll = () => {
+    if (openSideBar) setOpenSideBar(false)
+    if (openLogOutBox) setOpenLogOutBox(false)
+  }
   useEffect(() => {
     document.addEventListener('click', handleClickOutSideSideBar)
 
@@ -47,9 +51,16 @@ const Header = (props: Props) => {
       document.removeEventListener('click', handleClickOutSideSideBar)
     }
   }, [])
+  useEffect(() => {
+    document.addEventListener('scroll', handleScroll)
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  })
 
   return (
-    <div className=" sticky w-screen z-50">
+    <div className=" sticky w-full z-50">
       <div className="flex justify-between w-full px-5 mx-auto py-2">
         <div className="flex items-center gap-1" onClick={() => setOpenSideBar(true)} ref={menuButtonRef}>
           <Tooltip title="Menu">

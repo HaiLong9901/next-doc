@@ -37,10 +37,11 @@ const DocumentHeader = ({ documentTitle }: Props) => {
   }
   const handleChangeTitle = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setTile(e.target.value)
+    const newTitle = e.target.value
     const { id } = route.query
     const updatedDoc = doc(db, 'documents', id as string)
     await updateDoc(updatedDoc, {
-      title: !title.length ? 'The document has no title' : title,
+      title: !newTitle.length ? 'The document has no title' : newTitle,
     })
   }
   useEffect(() => {

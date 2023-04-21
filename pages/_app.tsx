@@ -6,6 +6,7 @@ import type { AppProps } from 'next/app'
 import { useEffect } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import '../styles/document.css'
+import '../styles/style.css'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import Login from './login'
 

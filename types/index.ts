@@ -5,4 +5,5 @@ export interface Document {
   user: string
   mutable: boolean
   updatedAt: string
+  share: string[]
 }
